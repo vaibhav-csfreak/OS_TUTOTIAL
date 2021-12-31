@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 int SJF_array[10][6];
-//Function to sort in ascending order of arraival time
+//Function to sort in ascending order of arrival time
 void arrangeArrival(int num, int SJF_array[][6])
 {
     for (int i = 0; i < num; i++)
@@ -11,7 +11,7 @@ void arrangeArrival(int num, int SJF_array[][6])
         {
             if (SJF_array[j][1] > SJF_array[j + 1][1])
             {
-                for (int k = 0; k < 5; k++)
+                for (int k = 0; k < 3; k++)
                 {
                     swap(SJF_array[j][k], SJF_array[j + 1][k]);
                 }
@@ -100,12 +100,9 @@ int main()
         total_TAT += SJF_array[i][4];
         total_WT += SJF_array[i][5];
     }
-
-    cout << "Total Waiting Time = " << total_WT << endl;
-    cout << "Total Turn Around Time = " << total_TAT << endl;
     //Display Average Turn Around Time
     cout << "Average Turn Around Time = " << total_TAT / (float)num << " ms" << endl;
     //Display Average Waiting Time
-    cout << "Average Waiter Time = " << total_WT / (float)num << " ms" << endl;
+    cout << "Average Waiting Time = " << total_WT / (float)num << " ms" << endl;
     return 0;
 }
